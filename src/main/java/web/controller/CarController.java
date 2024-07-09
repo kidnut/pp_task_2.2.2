@@ -8,15 +8,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Controller
-public class HelloController {
+public class CarController {
 
-    @GetMapping(value = "/hello")
+    @GetMapping(value = "/cars")
     public String printWelcome(ModelMap model) {
         List<String> messages = new ArrayList<>();
         messages.add("Hello!");
-        messages.add("My name is Edward Matsola");
-        messages.add("I'am solved task 2.2.2 on the Kata Academy course");
+        messages.add("My name is Edward Matsola!");
+        messages.add("I'am solved task 2.2.2 on the Kata Academy course!");
         model.addAttribute("messages", messages);
-        return "index";
+        return "cars";
     }
 }
