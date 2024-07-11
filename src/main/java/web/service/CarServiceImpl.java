@@ -9,7 +9,6 @@ import java.util.List;
 public class CarServiceImpl implements CarService {
 
     private final CarDao carDao = new CarDaoImpl();
-    private List<Car> cars;
 
     @Override
     public void addCar(Car car) {
