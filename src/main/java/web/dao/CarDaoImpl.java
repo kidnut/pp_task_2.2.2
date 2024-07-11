@@ -4,10 +4,10 @@ import web.model.Car;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class CarDaoImpl implements CarDao {
-
-    private List<Car> cars = new ArrayList<>();
+    public List<Car> cars = new ArrayList<>();
 
     {
         addCar((createCar("Nissan", "350Z", 2010)));
@@ -27,7 +27,10 @@ public class CarDaoImpl implements CarDao {
     }
 
     @Override
-    public int getCountAllCar(List<Car> cars) {
-        return cars.size();
+    public List<Car> getNumberCars(int num) {
+        if (num >= cars.size()) {
+            return cars;
+        }
+        return cars.stream().limit(num).collect(Collectors.toList());
     }
 }

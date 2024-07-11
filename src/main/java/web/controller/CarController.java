@@ -1,25 +1,25 @@
 package web.controller;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.stereotype.Repository;
+import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import web.dao.CarDaoImpl;
+import web.model.Car;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Controller
-//@RequestMapping("/hello")
 public class CarController {
 
+    CarDaoImpl carDao = new CarDaoImpl();
+
     @GetMapping("/cars")
-    public String printCar(ModelMap model) {
-        List<String> messages = new ArrayList<>();
-        messages.add("Hello!");
-        messages.add("My name is Edward Matsola!");
-        messages.add("I'am solved task 2.2.2 on the Kata Academy course!");
-        model.addAttribute("messages", messages);
+    public String printCar(@RequestParam(defaultValue = "0") int count, ModelMap model) {
+        List<Car> messages = carDao.getNumberCars(count);
+        model.addAttribute("message", messages);
         return "/cars";
     }
+
 }

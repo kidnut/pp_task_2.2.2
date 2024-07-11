@@ -35,12 +35,19 @@ public class Car {
         this.year = year;
     }
 
+    //    @Override
+//    public String toString() {
+//        return "Car{" +
+//                "make='" + brand + '\'' +
+//                ", model='" + model + '\'' +
+//                ", year=" + year +
+//                '}';
+//    }
     @Override
     public String toString() {
-        return "Car{" +
-                "make='" + brand + '\'' +
-                ", model='" + model + '\'' +
-                ", year=" + year +
-                '}';
+        return "Car:" +
+                "\nMake = " + brand +
+                "\nModel = " + model +
+                "\nYear = " + year;
     }
 }

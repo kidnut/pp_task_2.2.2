@@ -8,5 +8,5 @@ public interface CarService {
 
     void addCar(Car car);
 
-    int getCountAllCar(List<Car> cars);
+    List<Car> getNumberCars(int num);
 }
